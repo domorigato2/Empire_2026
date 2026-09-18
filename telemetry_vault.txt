@@ -1,0 +1,2 @@
+[2026-09-18 12:09:37] Beers: 9/15 | Cigs: 0 | Capital: $.07
+[2026-09-18 12:13:48] Consumed: 9/15 | Ammo Left: 6 | Cigs: 0 | Capital: $.07 | Status: STABLE | 6 UNITS REMAINING
