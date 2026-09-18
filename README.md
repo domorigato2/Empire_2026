@@ -14,6 +14,8 @@ An opinionated, terminal-first operations and network telemetry suite built in P
 
 \- \*\*`net\_probe.py`\*\*: Automated CCNA reachability diagnostic verifying Layer 2/3 Default Gateway routing, Layer 3 ISP Backbone connectivity, and Layer 7 DNS resolution.
 
+- **`subnet_calc.py`**: High-performance CCNA IPv4 subnet calculator computing Network ID, Broadcast ID, CIDR masks, total addresses, and usable host ranges in O(1) time complexity.
+
 \- \*\*`empire\_log.py`\*\*: Real-time biological telemetry tracker with conditional logic gates calculating daily allocations and nicotine abstinence streaks.
 
 \- \*\*`war\_chest.py`\*\*: Financial projection engine tracking emergency capital growth toward a $1,000 baseline with terminal progress visualization.
