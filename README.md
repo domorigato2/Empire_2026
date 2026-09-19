@@ -12,6 +12,8 @@ An opinionated, terminal-first operations and network telemetry suite built in P
 - **`streaks.py`**: Operational streak vault monitoring chemical sobriety, physical uptime, and habit automation.
 - **`empire_log.py`**: Real-time biological telemetry tracker with conditional logic gates calculating daily allocations and nicotine abstinence streaks.
 - **`war_chest.py`**: Financial projection engine tracking emergency capital growth toward a $1,000 baseline with terminal progress visualization.
+- **`dns_tool.py`**: Automated CCNA Layer 7 DNS resolver executing forward A-record queries and reverse PTR lookups via native sockets.
+- **`binary_calc.py`**: Bitwise IPv4 binary conversion engine breaking 32-bit network addresses into octets for CCNA routing logic.
 
 ## Technical Stack
 
