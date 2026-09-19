@@ -9,7 +9,7 @@ def main():
         print(" [1]  Log Telemetry (Beers, Cigs, Day 16)")
         print(" [2]  War Chest Engine ($1,000 Target)   ")
         print(" [3]  View Past Telemetry Vault          ")
-        print(" [4]  Run CCNA Reachability Probe (ICMP) ")
+        print(" [4]  Run CCNA Network Reachability Probe")
         print(" [5]  Run CCNA IPv4 Subnet Calculator    ")
         print(" [6]  View Operational Streak Vault      ")
         print(" [7]  Run CCNA Terminal Drill Engine     ")
