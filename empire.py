@@ -4,21 +4,22 @@ import sys
 def main():
     while True:
         print("\n=========================================")
-        print("        DOMINIC EMPIRE OS v2.5           ")
+        print("        DOMINIC EMPIRE OS v2.6           ")
         print("=========================================")
-        print(" [1] Log Telemetry (Beers, Cigs, Day 16) ")
-        print(" [2] War Chest Engine ($1,000 Target)    ")
-        print(" [3] View Past Telemetry Vault           ")
-        print(" [4] Run CCNA Network Reachability Probe ")
-        print(" [5] Run CCNA IPv4 Subnet Calculator     ")
-        print(" [6] View Operational Streak Vault       ")
-        print(" [7] Run CCNA Terminal Drill Engine      ")
-        print(" [8] Run CCNA Layer 4 TCP Port Scanner   ")
-        print(" [9] Run CCNA DNS Forward/Reverse Lookup ")
-        print(" [10] Exit Terminal                      ")
+        print(" [1]  Log Telemetry (Beers, Cigs, Day 16)")
+        print(" [2]  War Chest Engine ($1,000 Target)   ")
+        print(" [3]  View Past Telemetry Vault          ")
+        print(" [4]  Run CCNA Reachability Probe (ICMP) ")
+        print(" [5]  Run CCNA IPv4 Subnet Calculator    ")
+        print(" [6]  View Operational Streak Vault      ")
+        print(" [7]  Run CCNA Terminal Drill Engine     ")
+        print(" [8]  Run CCNA Layer 4 TCP Port Scanner  ")
+        print(" [9]  Run CCNA DNS Forward/Reverse Lookup")
+        print(" [10] Run CCNA IPv4 Binary Converter     ")
+        print(" [11] Exit Terminal                      ")
         print("=========================================")
         
-        choice = input("Select Subsystem [1-10]: ")
+        choice = input("Select Subsystem [1-11]: ")
         
         if choice == '1':
             subprocess.run([sys.executable, "empire_log.py"])
@@ -45,10 +46,12 @@ def main():
         elif choice == '9':
             subprocess.run([sys.executable, "dns_tool.py"])
         elif choice == '10':
+            subprocess.run([sys.executable, "binary_calc.py"])
+        elif choice == '11':
             print("\nShutting down Empire console. Hold the line.")
             break
         else:
-            print("\n[!] Invalid command. Select 1 through 10.")
+            print("\n[!] Invalid command. Select 1 through 11.")
 
 if __name__ == "__main__":
     main()
