@@ -72,4 +72,13 @@ def main():
             subprocess.run([sys.executable, "ccna_roadmap.py"])
         elif choice == '18':
             subprocess.run([sys.executable, "wildcard_calc.py"])
-        el
+        elif choice == '19':
+            subprocess.run([sys.executable, "ipv6_tool.py"])
+        elif choice == '20':
+            print("\nShutting down Empire console. Hold the line.")
+            break
+        else:
+            print("\n[!] Invalid command. Select 1 through 20.")
+
+if __name__ == "__main__":
+    main()
