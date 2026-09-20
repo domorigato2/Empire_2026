@@ -22,6 +22,8 @@ An opinionated, terminal-first operations and network telemetry suite built in P
 - **`mac_formatter.py`**: Layer 2 hardware address parser converting raw MAC inputs into standard Linux, Windows, and Cisco IOS formats.
 - **`hash_maker.py`**: Cryptographic generator demonstrating Cisco Type 5 (MD5) and Type 8 (SHA-256) password hashing algorithms.
 - **`ospf_cost.py`**: OSPF routing metric calculator demonstrating the reference bandwidth trap on Gigabit vs FastEthernet links.
+- **`wildcard_calc.py`**: CCNA Cisco Wildcard Mask Inverter converting subnet masks to exact OSPF and ACL security syntax.
+- **`ipv6_tool.py`**: RFC 5952 IPv6 compression and expansion engine utilizing native ipaddress parsing.
 
 ## Technical Stack
 
