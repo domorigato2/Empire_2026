@@ -4,11 +4,11 @@ import sys
 def main():
     while True:
         print("\n=========================================")
-        print("        DOMINIC EMPIRE OS v2.7           ")
+        print("        DOMINIC EMPIRE OS v2.8           ")
         print("=========================================")
         print(" [1]  Log Telemetry (Beers, Cigs, Day 16)")
         print(" [2]  War Chest Engine ($1,000 Target)   ")
-        print(" [3]  View Past Telemetry Vault          ")
+        print(" [3]  View Raw Telemetry Vault (cat)     ")
         print(" [4]  Run CCNA Network Reachability Probe")
         print(" [5]  Run CCNA IPv4 Subnet Calculator    ")
         print(" [6]  View Operational Streak Vault      ")
@@ -17,10 +17,11 @@ def main():
         print(" [9]  Run CCNA DNS Forward/Reverse Lookup")
         print(" [10] Run CCNA IPv4 Binary Converter     ")
         print(" [11] Run CCNA Subnet Speed Drill        ")
-        print(" [12] Exit Terminal                      ")
+        print(" [12] Run Vault Telemetry Stats Parser   ")
+        print(" [13] Exit Terminal                      ")
         print("=========================================")
         
-        choice = input("Select Subsystem [1-12]: ")
+        choice = input("Select Subsystem [1-13]: ")
         
         if choice == '1':
             subprocess.run([sys.executable, "empire_log.py"])
@@ -51,10 +52,12 @@ def main():
         elif choice == '11':
             subprocess.run([sys.executable, "subnet_drill.py"])
         elif choice == '12':
+            subprocess.run([sys.executable, "vault_stats.py"])
+        elif choice == '13':
             print("\nShutting down Empire console. Hold the line.")
             break
         else:
-            print("\n[!] Invalid command. Select 1 through 12.")
+            print("\n[!] Invalid command. Select 1 through 13.")
 
 if __name__ == "__main__":
     main()
