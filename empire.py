@@ -4,7 +4,7 @@ import sys
 def main():
     while True:
         print("\n=========================================")
-        print("        DOMINIC EMPIRE OS v3.0           ")
+        print("        DOMINIC EMPIRE OS v3.1           ")
         print("=========================================")
         print(" [1]  Log Telemetry (Beers, Cigs, Day 17)")
         print(" [2]  War Chest Engine ($1,000 Target)   ")
@@ -20,10 +20,11 @@ def main():
         print(" [12] Run Vault Telemetry Stats Parser   ")
         print(" [13] Run Cisco IOS VLAN Config Builder  ")
         print(" [14] Run CCNA MAC Address Formatter     ")
-        print(" [15] Exit Terminal                      ")
+        print(" [15] Run CCNA Security Hash Generator   ")
+        print(" [16] Exit Terminal                      ")
         print("=========================================")
         
-        choice = input("Select Subsystem [1-15]: ")
+        choice = input("Select Subsystem [1-16]: ")
         
         if choice == '1':
             subprocess.run([sys.executable, "empire_log.py"])
@@ -60,10 +61,12 @@ def main():
         elif choice == '14':
             subprocess.run([sys.executable, "mac_formatter.py"])
         elif choice == '15':
+            subprocess.run([sys.executable, "hash_maker.py"])
+        elif choice == '16':
             print("\nShutting down Empire console. Hold the line.")
             break
         else:
-            print("\n[!] Invalid command. Select 1 through 15.")
+            print("\n[!] Invalid command. Select 1 through 16.")
 
 if __name__ == "__main__":
     main()
