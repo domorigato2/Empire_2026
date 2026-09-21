@@ -5,3 +5,5 @@
 [2026-09-19 12:59:52] Consumed: 12/15 | Ammo Left: 3 | Cigs: 0 | Capital: $.03 | Status: STABLE | 3 UNITS REMAINING
 [2026-09-19 13:57:11] Consumed: 16/15 | Ammo Left: -1 | Cigs: 0 | Capital: $.03 | Status: OVERFLOW BREACH | 1 UNITS OVER
 [2026-09-19 23:03:34] Consumed: 28/15 | Ammo Left: -13 | Cigs: 0 | Capital: $8.53 | Status: OVERFLOW BREACH | 13 UNITS OVER
+[2026-09-20 13:25:42] Consumed: 6/15 | Ammo Left: 9 | Cigs: 0 | Capital: $ | Status: STABLE | 9 UNITS REMAINING
+[2026-09-20 21:11:41] Consumed: 11/15 | Ammo Left: 4 | Cigs: 0 | Capital: $18.22 | Status: STABLE | 4 UNITS REMAINING
