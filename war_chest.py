@@ -27,7 +27,8 @@ print("-----------------------------------------")
 if gap <= 0:
     print("OBJECTIVE COMPLETE. PHASE 2: INDEX INVESTING.")
 else:
-    lawns_needed = gap / 25.0
-    print(f"MISSION GAP: Exactly {lawns_needed:.1f} lawns ($25) or daily microtasks to clear.")
+    daily_microtask_avg = 5.00  # Average daily yield from Bingo/AttaPoll/InboxDollars
+    days_needed = gap / daily_microtask_avg
+    print(f"MISSION GAP: ~{days_needed:.1f} days of $5.00 microtask grinding to clear.")
 
 print("=========================================")
