@@ -1,46 +1,43 @@
-import socket
+﻿import socket
 import sys
 
-# Standard CCNA Layer 4 Well-Known Ports
-TARGET_PORTS = {
-    21: "FTP (File Transfer)",
-    22: "SSH (Secure Shell)",
-    23: "Telnet (Unencrypted CLI)",
-    53: "DNS (Domain Name System)",
-    80: "HTTP (Web Plaintext)",
-    443: "HTTPS (Web Encrypted)",
-    8080: "HTTP Alternate / Web Proxy"
+PORTS = {
+    21: "FTP",
+    22: "SSH",
+    53: "DNS",
+    80: "HTTP",
+    443: "HTTPS",
+    8080: "HTTP-ALT"
 }
 
-def scan_target():
-    print("=========================================")
-    print("      CCNA LAYER 4 TCP PORT SCANNER      ")
-    print("=========================================")
-    
-    target = input("Enter Target IP (Default router: 192.168.1.1): ").strip()
-    if not target:
-        target = "192.168.1.1"
+def scan_target(target_host):
+    try:
+        target_ip = socket.gethostbyname(target_host)
+    except socket.gaierror:
+        print(f"\n[!] Resolution Error: Unable to resolve '{target_host}'.\n")
+        return
 
-    print(f"\n[*] Initiating TCP 3-Way Handshake probes on: {target}")
-    print("-----------------------------------------")
+    print("\n==================================================")
+    print("      TACTICAL PORT SCANNER // SOCKET PROBE       ")
+    print("==================================================")
+    print(f" Target Host : {target_host}")
+    print(f" Target IP   : {target_ip}")
+    print(" Probing Ports: 21, 22, 53, 80, 443, 8080")
+    print("--------------------------------------------------")
 
-    for port, service in TARGET_PORTS.items():
-        # AF_INET = IPv4, SOCK_STREAM = TCP Handshake
+    for port, service in PORTS.items():
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(0.6)  # 600ms timeout for speed
-        
-        result = s.connect_ex((target, port))
-        
+        s.settimeout(0.7)  # 700ms probe window
+        result = s.connect_ex((target_ip, port))
         if result == 0:
-            print(f" [✓] PORT {port:<5} [{service:<26}] : OPEN (SYN-ACK Received)")
+            print(f" [+] PORT {port:04d} [{service:<8}] --> OPEN / LISTENING")
         else:
-            print(f" [ ] PORT {port:<5} [{service:<26}] : CLOSED / FILTERED")
-            
+            print(f" [-] PORT {port:04d} [{service:<8}] --> CLOSED / FILTERED")
         s.close()
-
-    print("-----------------------------------------")
-    print("SCAN COMPLETE. TRANSPORT LAYER VERIFIED.")
-    print("=========================================")
+    print("==================================================\n")
 
 if __name__ == "__main__":
-    scan_target()
+    if len(sys.argv) > 1:
+        scan_target(sys.argv[1])
+    else:
+        print("[!] Usage: python port_scanner.py <HOST_OR_IP>")
