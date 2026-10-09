@@ -1,34 +1,32 @@
-import ipaddress
+﻿import ipaddress
+import sys
 
-print("=========================================")
-print("      CCNA IPv4 SUBNET CALCULATOR        ")
-print("=========================================")
+def calculate_subnet(cidr_input):
+    try:
+        network = ipaddress.ip_network(cidr_input, strict=False)
+    except ValueError as e:
+        print(f"\n[!] Input Error: {e}\n")
+        return
 
-cidr_input = input("Enter Network/CIDR (e.g., 192.168.1.0/24): ").strip()
+    total_hosts = network.num_addresses - 2 if network.num_addresses > 2 else 0
 
-try:
-    # strict=False allows passing host IPs like 192.168.1.50/24
-    net = ipaddress.ip_network(cidr_input, strict=False)
-    
-    total = net.num_addresses
-    usable = max(total - 2, 0)
-    
-    # Calculate host range in O(1) time complexity (no memory lag)
-    first_host = net.network_address + 1 if total > 2 else "N/A"
-    last_host = net.broadcast_address - 1 if total > 2 else "N/A"
-    
-    print("-----------------------------------------")
-    print(f"INPUT CIDR        : {cidr_input}")
-    print(f"NETWORK ID        : {net.network_address}")
-    print(f"BROADCAST ID      : {net.broadcast_address}")
-    print(f"SUBNET MASK       : {net.netmask}")
-    print(f"TOTAL ADDRESSES   : {total}")
-    print(f"USABLE HOSTS      : {usable}")
-    print(f"USABLE HOST RANGE : {first_host} - {last_host}")
-    print("-----------------------------------------")
+    print("\n==================================================")
+    print("     CISCO CCNA // SUBNET & CIDR ARCHITECT        ")
+    print("==================================================")
+    print(f" Target CIDR    : {cidr_input}")
+    print(f" Network ID     : {network.network_address}")
+    print(f" Subnet Mask    : {network.netmask}")
+    print(f" Wildcard Mask  : {network.hostmask}")
+    print(f" Broadcast IP   : {network.broadcast_address}")
+    print(f" Usable Hosts   : {total_hosts}")
+    if total_hosts > 0:
+        first_host = network.network_address + 1
+        last_host = network.broadcast_address - 1
+        print(f" Usable Range   : {first_host} -> {last_host}")
+    print("==================================================\n")
 
-except ValueError as err:
-    print(f"\n[!] Invalid IPv4 CIDR syntax: {err}")
-
-print("CALCULATION COMPLETE. PURE CCNA LOGIC.")
-print("=========================================")
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        calculate_subnet(sys.argv[1])
+    else:
+        print("[!] Usage: python subnet_calc.py <IP/CIDR> (e.g. 192.168.1.50/24)")
