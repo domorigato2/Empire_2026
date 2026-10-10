@@ -6,7 +6,7 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def get_war_chest():
-    log_file = "money.log"
+    log_file = "Config/money.log" if os.path.exists("Config/money.log") else "money.log"
     if not os.path.exists(log_file):
         with open(log_file, "w") as f:
             f.write("9.37")
@@ -16,14 +16,6 @@ def get_war_chest():
             return float(f.read().strip())
     except ValueError:
         return 9.37
-
-def update_war_chest(amount):
-    log_file = "money.log"
-    current = get_war_chest()
-    new_total = current + amount
-    with open(log_file, "w") as f:
-        f.write(f"{new_total:.2f}")
-    return new_total
 
 def render_progress_bar(percentage, width=30):
     filled_len = int(width * percentage / 100)
@@ -40,36 +32,23 @@ def render_dashboard(current):
     
     clear_screen()
     print("==================================================================")
-    print("        DOMINIC EMPIRE // ALL-OPTIMIZATION HUD v1.3               ")
+    print("        DOMINIC EMPIRE // ALL-OPTIMIZATION HUD v1.4               ")
     print("==================================================================")
     print(f" [^] War Chest Target   : ${target:.2f}")
     print(f" [^] Liquid Capital     : ${current:.2f}")
     print(f" [^] Remaining Deficit  : ${gap:.2f}")
     print(f" [^] Visual Progress    : {progress_bar}")
     print("------------------------------------------------------------------")
+    print(f" [^] Chassis Weight     : 117.6 lbs (+6.6 lbs Surge // Hydrated)")
     print(f" [^] Chassis Status     : Bed Turret (Hydrostatic Drain Active)")
-    print(f" [^] Audio Shield       : Anker Soundcore Q30 (Acoustic / ANC)")
-    print(f" [^] Nicotine Firewall  : Day 36 (0.0% Tolerance)")
-    print(f" [^] Alcohol Detox      : Day 5 (Librium 12h Taper Active)")
-    print(f" [^] Next Pharmacological Lock : 07:00 PM STRICT")
+    print(f" [^] Nicotine Firewall  : Day 39 (0.0% Tolerance)")
+    print(f" [^] Alcohol Detox      : Day 6 (Librium 12h Taper Active)")
+    print(f" [^] Next Pharma Lock   : 07:00 AM STRICT (Morning Payload)")
     print(f" [^] System Timestamp   : {time.strftime('%I:%M %p // %Y-%m-%d')}")
     print("==================================================================")
-    print(" STATUS: SYSTEM RUNNING AT PEAK SIGNAL. ZERO DROPPED PACKETS.    ")
+    print(" STATUS: RECOVERY RUNWAY EXPANDED. CODE REPOSITORY ACTIVE.       ")
     print("==================================================================")
 
 if __name__ == "__main__":
-    try:
-        if len(sys.argv) > 1:
-            try:
-                delta = float(sys.argv[1])
-                new_val = update_war_chest(delta)
-                print(f"[+] Transaction logged: ${delta:+.2f} -> New Total: ${new_val:.2f}")
-                time.sleep(1.2)
-            except ValueError:
-                print("[!] Error: Invalid monetary value passed to CLI.")
-        
-        current_capital = get_war_chest()
-        render_dashboard(current_capital)
-    except KeyboardInterrupt:
-        print("\n[!] Terminal session terminated by Operator.")
-        sys.exit(0)
+    current_capital = get_war_chest()
+    render_dashboard(current_capital)
