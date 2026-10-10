@@ -5,70 +5,127 @@ import subprocess
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+def run_mod(script_name, *args):
+    cmd = [sys.executable, script_name] + list(args)
+    subprocess.run(cmd)
+    input("\n[Press Enter to return to Master Console...]")
+
 def menu():
     while True:
         clear()
-        print("==========================================================")
-        print("     DOMINIC EMPIRE // MASTER ARSENAL CONSOLE v1.0        ")
-        print("==========================================================")
-        print(" [1] Empire Telemetry HUD (empire_dashboard.py)")
-        print(" [2] Append Telemetry Log (empire_logger.py)")
-        print(" [3] Subnet & CIDR Architect (subnet_calc.py)")
-        print(" [4] TCP Socket Port Scanner (port_scanner.py)")
-        print(" [5] ICMP Ping Scout (ping_scout.py)")
-        print(" [6] Multi-Threaded LAN Sweeper (lan_sweeper.py)")
-        print(" [7] Caesar Cipher Encrypt/Decrypt (cipher.py)")
-        print(" [8] Brute-Force Cipher Breaker (crack.py)")
-        print(" [9] Cisco IOS Config Generator (cisco_gen.py)")
-        print(" [0] Terminate Console")
-        print("==========================================================")
+        print("==================================================================")
+        print("        DOMINIC EMPIRE // MASTER ARSENAL CONSOLE v2.0             ")
+        print("==================================================================")
+        print(" [DIVISION 1: CHASSIS & LOGISTICS]")
+        print("   [1]  Empire Telemetry HUD (empire_dashboard.py)")
+        print("   [2]  Append Telemetry Log (empire_logger.py)")
+        print("   [3]  Automated Directory Cleaner (cleaner.py)")
+        print("   [4]  Process Hunter (process_hunter.py)")
+        print("   [5]  Active Socket Scout (netstat_scout.py)")
+        print("\n [DIVISION 2: NETWORK RECONNAISSANCE]")
+        print("   [6]  ICMP Ping Reachability Scout (ping_scout.py)")
+        print("   [7]  Layer 3 Jitter & PDV Analyzer (jitter_scout.py)")
+        print("   [8]  Traceroute Route Hop Scout (hop_scout.py)")
+        print("   [9]  TCP Socket Port Scanner (port_scanner.py)")
+        print("   [10] Multi-Threaded LAN Sweeper (lan_sweeper.py)")
+        print("   [11] Layer 7 DNS Recon Engine (dns_scout.py)")
+        print("   [12] Layer 2 ARP Table Inspector (arp_scout.py)")
+        print("   [13] HTTP Service Banner Grabber (banner_grab.py)")
+        print("\n [DIVISION 3: CISCO CCNA AUTOMATION]")
+        print("   [14] Subnet & CIDR Architect (subnet_calc.py)")
+        print("   [15] 4-Way Mask & Bit Converter (mask_converter.py)")
+        print("   [16] Subnet Host Range Exporter (subnet_export.py)")
+        print("   [17] Cisco SVI Switchport Gen (cisco_gen.py)")
+        print("   [18] Cisco 802.1Q ROAS Trunk Gen (cisco_trunk_gen.py)")
+        print("   [19] Cisco DHCP Server Pool Gen (cisco_dhcp_gen.py)")
+        print("   [20] Cisco Standard & Extended ACL Gen (cisco_acl_gen.py)")
+        print("   [21] Cisco Static & Floating Route Gen (cisco_static_route_gen.py)")
+        print("   [22] Cisco NAT/PAT Overload Gen (cisco_nat_gen.py)")
+        print("   [23] Cisco OSPFv2 Routing Gen (cisco_ospf_gen.py)")
+        print("\n [DIVISION 4: CRYPTO & DRILLS]")
+        print("   [24] CCNA 200-301 Exam Quiz Drill (ccna_drill.py)")
+        print("   [25] Caesar Cipher Engine (cipher.py)")
+        print("   [26] Brute-Force Cipher Breaker (crack.py)")
+        print("   [27] Cryptographic Hash Generator (crypto_hasher.py)")
+        print("   [28] Secure Key / Password Gen (gen_pass.py)")
+        print("   [29] Bingo Clash Ticket ROI Calc (bingo_calc.py)")
+        print("\n   [0]  Terminate Master Console")
+        print("==================================================================")
         choice = input(" [>] Select Module: ").strip()
 
         if choice == "1":
-            subprocess.run([sys.executable, "empire_dashboard.py"])
-            input("\n[Press Enter to return to Arsenal...]")
+            run_mod("empire_dashboard.py")
         elif choice == "2":
-            msg = input(" Enter log text: ")
-            subprocess.run([sys.executable, "empire_logger.py", msg])
-            input("\n[Press Enter to return to Arsenal...]")
+            entry = input(" Enter telemetry log text: ")
+            run_mod("empire_logger.py", entry)
         elif choice == "3":
-            cidr = input(" Enter IP/CIDR (e.g. 192.168.1.0/24): ")
-            subprocess.run([sys.executable, "subnet_calc.py", cidr])
-            input("\n[Press Enter to return to Arsenal...]")
+            run_mod("cleaner.py")
         elif choice == "4":
-            target = input(" Enter host/IP to scan: ")
-            subprocess.run([sys.executable, "port_scanner.py", target])
-            input("\n[Press Enter to return to Arsenal...]")
+            run_mod("process_hunter.py")
         elif choice == "5":
-            target = input(" Enter host/IP to ping: ")
-            subprocess.run([sys.executable, "ping_scout.py", target])
-            input("\n[Press Enter to return to Arsenal...]")
+            run_mod("netstat_scout.py")
         elif choice == "6":
-            subnet = input(" Enter base subnet (default 192.168.1): ") or "192.168.1"
-            start = input(" Enter start host (default 100): ") or "100"
-            end = input(" Enter end host (default 120): ") or "120"
-            subprocess.run([sys.executable, "lan_sweeper.py", subnet, start, end])
-            input("\n[Press Enter to return to Arsenal...]")
+            t = input(" Enter target to ping (default 1.1.1.1): ") or "1.1.1.1"
+            run_mod("ping_scout.py", t)
         elif choice == "7":
-            mode = input(" Mode (encrypt/decrypt): ")
-            shift = input(" Shift key (e.g. 3): ")
-            text = input(" Text: ")
-            subprocess.run([sys.executable, "cipher.py", mode, shift, text])
-            input("\n[Press Enter to return to Arsenal...]")
+            t = input(" Enter target for jitter test (default 1.1.1.1): ") or "1.1.1.1"
+            run_mod("jitter_scout.py", t, "10")
         elif choice == "8":
-            cipher_text = input(" Enter ciphertext to crack: ")
-            subprocess.run([sys.executable, "crack.py", cipher_text])
-            input("\n[Press Enter to return to Arsenal...]")
+            t = input(" Enter target for traceroute (default 1.1.1.1): ") or "1.1.1.1"
+            run_mod("hop_scout.py", t, "10")
         elif choice == "9":
-            h = input(" Hostname: ")
-            vid = input(" VLAN ID: ")
-            vname = input(" VLAN Name: ")
-            ip = input(" SVI IP: ")
-            mask = input(" Subnet Mask: ")
-            subprocess.run([sys.executable, "cisco_gen.py", h, vid, vname, ip, mask])
-            input("\n[Press Enter to return to Arsenal...]")
+            t = input(" Enter target host to scan (default 127.0.0.1): ") or "127.0.0.1"
+            run_mod("port_scanner.py", t)
+        elif choice == "10":
+            sub = input(" Base subnet (default 192.168.1): ") or "192.168.1"
+            run_mod("lan_sweeper.py", sub, "100", "120")
+        elif choice == "11":
+            t = input(" Enter domain or IP to resolve: ") or "cisco.com"
+            run_mod("dns_scout.py", t)
+        elif choice == "12":
+            run_mod("arp_scout.py")
+        elif choice == "13":
+            t = input(" Enter target IP (default 192.168.1.1): ") or "192.168.1.1"
+            run_mod("banner_grab.py", t)
+        elif choice == "14":
+            c = input(" Enter CIDR (e.g. 192.168.10.0/24): ") or "192.168.10.0/24"
+            run_mod("subnet_calc.py", c)
+        elif choice == "15":
+            m = input(" Enter mask or CIDR to convert (e.g. /28): ") or "/28"
+            run_mod("mask_converter.py", m)
+        elif choice == "16":
+            c = input(" Enter CIDR to map (e.g. 10.0.0.0/28): ") or "10.0.0.0/28"
+            run_mod("subnet_export.py", c)
+        elif choice == "17":
+            run_mod("cisco_gen.py", "SW-CORE", "10", "MGMT", "192.168.10.1", "255.255.255.0")
+        elif choice == "18":
+            run_mod("cisco_trunk_gen.py", "G0/0/0", "Fa0/24", "20", "DATA", "10.20.0.1", "255.255.255.0")
+        elif choice == "19":
+            run_mod("cisco_dhcp_gen.py", "POOL_DATA", "10.20.0.0", "255.255.255.0", "10.20.0.1", "8.8.8.8")
+        elif choice == "20":
+            run_mod("cisco_acl_gen.py", "standard", "10", "permit", "192.168.10.0", "0.0.0.255")
+        elif choice == "21":
+            run_mod("cisco_static_route_gen.py", "0.0.0.0", "0.0.0.0", "209.165.200.226")
+        elif choice == "22":
+            run_mod("cisco_nat_gen.py", "192.168.10.0", "0.0.0.255", "G0/0/0", "G0/0/1", "1")
+        elif choice == "23":
+            run_mod("cisco_ospf_gen.py", "1", "1.1.1.1", "0", "G0/0/0")
+        elif choice == "24":
+            run_mod("ccna_drill.py")
+        elif choice == "25":
+            run_mod("cipher.py", "encrypt", "3", "Dominic Margherio")
+        elif choice == "26":
+            t = input(" Enter ciphertext: ") or "Grplqlf Pdujkhulr"
+            run_mod("crack.py", t)
+        elif choice == "27":
+            t = input(" Enter text to hash: ") or "DominicEmpire2026"
+            run_mod("crypto_hasher.py", t)
+        elif choice == "28":
+            run_mod("gen_pass.py", "24")
+        elif choice == "29":
+            run_mod("bingo_calc.py", "9300")
         elif choice == "0":
-            print("\n[!] Exiting Arsenal Console.")
+            print("\n[!] Exiting Master Arsenal Console.")
             break
 
 if __name__ == "__main__":
