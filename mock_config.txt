@@ -1,0 +1,9 @@
+﻿enable
+configure terminal
+hostname UNSECURE-ROUTER
+enable password cisco123
+line vty 0 4
+ transport input telnet
+ password admin
+exit
+end
